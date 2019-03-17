@@ -1,0 +1,296 @@
+.standard-schrift {
+    font-family: Fixed,monospace;
+}
+.grosse-schrift {
+    font-family: Fixed,monospace;
+    font-size: 16px;
+}
+.gradient-left {
+    background: -moz-linear-gradient(left center , #F2D99C 0%, #BF0426 100%) repeat scroll 0 0 transparent;
+}
+.gradient-right {
+    background: -moz-linear-gradient(left center , #BF0426 0%, #F2D99C 100%) repeat scroll 0 0 transparent;
+}
+.defaultfont {
+    font-family: Fixed,monospace;
+    font-size: 12px;
+}
+body {
+    font-family: Fixed,monospace;
+    font-size: 12px;
+}
+#menu {
+    background-color: #F2D99C;
+    height: 600px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 299px;
+}
+#menu a {
+    color: black;
+}
+#main {
+    background-color: #F2D99C;
+    height: 600px;
+    left: 300px;
+    overflow-x: scroll;
+    position: absolute;
+    top: 0;
+    width: 1000px;
+}
+#main a {
+    color: #690011;
+}
+#sb-view-classic {
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 10px;
+}
+#sb-view-classic-person {
+	background-image: linear-gradient(to right, #F2D99C, #BF0426);
+    left: 375px;
+    top: 170px;
+}
+#sb-view-classic-children {
+    height: 60px;
+    left: 0;
+    overflow-x: scroll;
+    position: absolute;
+    top: 400px;
+    width: 1000px;
+}
+.sb-view-facet-list {
+}
+.sb-view-facet-list li {
+}
+.sb-view-facet-list2 {
+    padding: 0;
+}
+.sb-view-facet-list2 li {
+    float: left;
+    list-style-type: none;
+    padding: 0 10px 0 0;
+}
+#sb-view-classic-siblings {
+    height: 100px;
+    left: 375px;
+    overflow: scroll;
+    position: absolute;
+    top: 255px;
+    width: 250px;
+}
+#sb-view-classic-mother {
+    background-image: linear-gradient(to right, #BF0426, #F2D99C);
+    left: 625px;
+    top: 85px;
+}
+#sb-view-classic-fatherfather {
+	background-image: linear-gradient(to right, #F2D99C, #BF0426);
+    left: 0;
+    top: 0;
+}
+#sb-view-classic-fathermother {
+	background-image: linear-gradient(to right, #BF0426, #F2D99C);
+    left: 250px;
+    top: 0;
+}
+#sb-view-classic-motherfather {
+	background-image: linear-gradient(to right, #F2D99C, #BF0426);
+    left: 500px;
+    top: 0;
+}
+#sb-view-classic-mothermother {
+	background-image: linear-gradient(to right, #BF0426, #F2D99C);
+    left: 750px;
+    top: 0;
+}
+#sb-view-classic-father {
+    background: linear-gradient(to right, #F2D99C, #BF0426);
+    left: 125px;
+    top: 85px;
+}
+#sb-view-geschwister {
+	padding:20px 20px;
+	height:100%;
+	width:100%;
+}
+#sb-view-relation-root {
+    left: 470px;
+    position: absolute;
+    top: 20px;
+}
+#sb-view-relation-fork {
+    background-image: url("../img/sprites.gif");
+    background-position: 0 0;
+    height: 50px;
+    left: 400px;
+    position: absolute;
+    top: 100px;
+    width: 200px;
+}
+.sb-view-relation-line-center {
+    left: 500px;
+    position: absolute;
+}
+.sb-view-relation-center {
+    left: 470px;
+    position: absolute;
+}
+.sb-view-relation-left {
+    left: 370px;
+    position: absolute;
+}
+.sb-view-relation-line-left {
+    left: 400px;
+    position: absolute;
+}
+.sb-view-relation-right {
+    left: 570px;
+    position: absolute;
+}
+.sb-view-relation-line-right {
+    left: 600px;
+    position: absolute;
+}
+.sb-view-facet-datasheet01 {
+    border: 0 solid black;
+    font-size: 12px;
+    height: 85px;
+    position: absolute;
+    width: 250px;
+}
+.sb-view-facet-datasheet01-image {
+    background-color: #F2D99C;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 80px;
+}
+.sb-view-facet-datasheet01-facts {
+    background-color: #F2D99C;
+    left: 80px;
+    position: absolute;
+    top: 0;
+    width: 170px;
+}
+.sb-view-facet-facts01 {
+    background-color: #F2D99C;
+    border-collapse: collapse;
+    height: 80px;
+    width: 100px;
+}
+#sb-view-classic .mutter .sb-view-facet-datasheet01-table {
+    background-color: palegreen;
+}
+.search-result {
+    height: 200px;
+    overflow-y: scroll;
+}
+.sb-view-facet-searchInput-firstname {
+    width: 200px;
+}
+.sb-view-facet-searchInput-lastname {
+    width: 200px;
+}
+.sb-view-facet-dateinput-day {
+    width: 40px;
+}
+#sb-menu-pageselection {
+    background-color: Peru;
+    font-family: Fixed,monospace;
+    font-size: 16px;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 299px;
+}
+#sb-menu-pageselection-page1 {
+    background-color: #CC2738;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 149px;
+}
+#sb-menu-pageselection-page2 {
+    background-color: #E5B96F;
+    height: 20px;
+    left: 100px;
+    position: absolute;
+    top: 0;
+    width: 199px;
+}
+#sb-menu-pagecontainer {
+    background-color: #F2D99C;
+    height: 500px;
+    left: 0;
+    position: absolute;
+    top: 20px;
+    width: 299px;
+}
+#sb-menu-page1 {
+    background-color: #CC2738;
+    height: 100%;
+    width: 100%;
+}
+.currentPerson {
+    background-color: #690011;
+    color: #F2D99C;
+    font-family: Fixed,monospace;
+    font-size: 16px;
+    font-weight: bold;
+    left: 0;
+    padding-left: 10px;
+    position: absolute;
+    top: 10px;
+    width: 289px;
+}
+#sb-menu-page1-views {
+    position: absolute;
+    top: 400px;
+}
+#sb-menu-page2-views {
+    position: absolute;
+    top: 400px;
+}
+#sb-menu-page2 {
+    background-color: #E5B96F;
+    height: 100%;
+    width: 100%;
+}
+.search {
+    left: 10px;
+    position: absolute;
+    top: 50px;
+}
+.fork01 {
+    background-image: url("../img/sprites.gif");
+    background-position: 0 0;
+    height: 50px;
+    width: 100px;
+}
+.line01 {
+    background-image: url("../img/sprites.gif");
+    background-position: 0 50px;
+    height: 25px;
+    width: 1px;
+}
+.image01 {
+    border: medium none;
+    height: 80px;
+    vertical-align: bottom;
+    width: 60px;
+}
+.image02 {
+	border: none;
+	height: 200px;
+	vertical-align: bottom;
+	width: 150px;
+}
+.list-of-views {
+    font-family: Fixed,monospace;
+    font-size: 16px;
+}

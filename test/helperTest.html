@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/qunit-git.css">
+	<script src="../lib/jquery-1.7.1.js"></script>
+	<script src="../lib/jquery-ui-1.8.17.custom.min.js"></script>
+	<script src="../lib/moment.min.js"></script>
+	<script src="../js/qunit-git.js"></script>
+	<script src="../js/ns.js"></script>
+	<script src="../js/helper.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			module('sb.helper');
+			test('splitArrayIntoPartsOf', function() {
+				deepEqual(sb.helper.splitArrayIntoPartsOf([], 1), [[]]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a'], 1), [['a']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b'], 1), [['a'],['b']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b'], 2), [['a','b']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b'], 3), [['a','b']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b','c'], 2), [['a','b'],['c']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b','c','d','e'], 2), [['a','b'],['c','d'],['e']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b','c'], 3), [['a','b','c']]);
+				deepEqual(sb.helper.splitArrayIntoPartsOf(['a','b','c','d'], 3), [['a','b','c'],['d']]);
+			});
+			test('isMomentWithinNextDays', function() {
+				var today = new moment();
+				var days = 7;
+				deepEqual(sb.helper.isMomentWithinNextDays(today, days), true);
+				deepEqual(sb.helper.isMomentWithinNextDays(today.add('days', -1), days), false);
+				deepEqual(sb.helper.isMomentWithinNextDays(today.add('days', 1), days), true);
+				deepEqual(sb.helper.isMomentWithinNextDays(today.add('days', 7), days), true);
+				deepEqual(sb.helper.isMomentWithinNextDays(today.add('days', 8), days), false);
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1 id="qunit-header">QUnit example</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+	<div id="qunit-fixture">test markup, will be hidden</div>	
+</body>
+</html>

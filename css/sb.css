@@ -1,0 +1,303 @@
+body {
+	font-family:Fixed, monospace;
+	font-size:12px;
+}
+
+#menu {
+	background-color:plum;
+	height:600px;
+	position:absolute;
+	top:0;
+	left:0;
+	width:299px;
+}
+
+#main {
+	position:absolute;
+	top:0;
+	left:300px;
+	height:600px;
+	overflow-x:scroll;
+	width:1000px;
+}
+
+#sb-view-classic {
+	/* background-color:plum; /* #dda0dd */
+	left:0;
+	top:10px;
+	position:absolute;
+	padding:20px;
+}
+
+#sb-view-classic-person {
+	background:-moz-linear-gradient(0deg,#fff,Lavender);/*Cornsilk;*/
+	left:375px;
+	top:170px;
+}
+
+#sb-view-classic-children {
+	position:absolute;
+	left:0px;
+	top:400px;
+	height:60px;
+	overflow-x:scroll;
+	width:1000px;
+}
+
+
+.sb-view-facet-list {
+	/* padding:0; */
+}
+
+.sb-view-facet-list li {
+	/* list-style-type: none; */
+}
+
+.sb-view-facet-list2 {
+	padding:0;
+}
+
+.sb-view-facet-list2 li {
+	float:left;
+	padding:0 10px 0 0;
+	list-style-type: none;
+}
+
+#sb-view-classic-siblings {
+	position:absolute;
+	left:375px;
+	top:255px;
+	height:100px;
+	overflow-x:scroll;
+	overflow-y:scroll;
+	width:250px;
+}
+
+#sb-view-classic-mother {
+	background:-moz-linear-gradient(0deg,Lavender,#fff);/*Cornsilk;*/
+	left:625px;
+	top:85px;
+}
+
+#sb-view-classic-fatherfather {
+	background:-moz-linear-gradient(0deg,#fff,Lavender);/*Cornsilk;*/
+	left:0;
+	top:0;
+}
+
+/* mother of father */
+#sb-view-classic-fathermother {
+	background:-moz-linear-gradient(0deg,Lavender,#fff);/*Cornsilk;*/
+	left:250px;
+	top:0;
+}
+
+/* father of mother */
+#sb-view-classic-motherfather {
+	background:-moz-linear-gradient(0deg,#fff,Lavender);/*Cornsilk;*/
+	left:500px;
+	top:0;
+}
+
+#sb-view-classic-mothermother {
+	background:-moz-linear-gradient(0deg,Lavender,#fff);/*Cornsilk;*/
+	left:750px;
+	top:0;
+}
+
+#sb-view-classic-father {
+	background:-moz-linear-gradient(0deg,#fff,Lavender);/*Cornsilk;*/
+	left:125px;
+	top:85px;
+}
+
+#sb-view-relation-root {
+	left:470px;
+	position:absolute;
+	top:20px;
+}
+
+#sb-view-relation-fork {
+	background-image: url(../img/sprites.gif);
+	background-position: 0 0;
+	left:400px;
+	height:50px;
+	position:absolute;
+	top:100px;
+	width:200px;
+}
+
+.sb-view-relation-line-center {
+	position:absolute;
+	left:500px;
+}
+
+.sb-view-relation-center {
+	position:absolute;
+	left:470px;
+}
+
+.sb-view-relation-left {
+	position:absolute;
+	left:370px;
+}
+
+.sb-view-relation-line-left {
+	position:absolute;
+	left:400px;
+}
+
+.sb-view-relation-right {
+	position:absolute;
+	left:570px;
+}
+
+.sb-view-relation-line-right {
+	position:absolute;
+	left:600px;
+}
+
+.sb-view-facet-datasheet01 {
+	border:0px solid black;
+	font-size:12px;
+	height:85px;
+	position:absolute;
+	width:250px;
+}
+
+.sb-view-facet-datasheet01-image {
+	background-color:#fff;
+	left:0;
+	position:absolute;
+	top:0;
+	width:80px;
+}
+
+.sb-view-facet-datasheet01-facts {
+	background-color:#fff;
+	left:80px;
+	position:absolute;
+	top:0;
+	width:170px;	
+}
+
+.sb-view-facet-facts01 {
+	background-color:white;
+	border-collapse:collapse;
+	height:80px;
+	width:100px;
+}
+
+#sb-view-classic .mutter .sb-view-facet-datasheet01-table {
+background-color:palegreen;
+}
+
+.search-result {
+	height:200px;
+	overflow-y: scroll;
+}
+
+.sb-view-facet-searchInput-firstname {
+	width:200px;
+}
+
+.sb-view-facet-searchInput-lastname {
+	width:200px;
+}
+
+.sb-view-facet-dateinput-day {
+	width:40px;
+}
+
+#sb-menu-pageselection {
+	background-color:Peru;
+	font-size:16px;
+	height:20px;
+	position:absolute;
+	top:0;
+	left:0;
+	width:299px;
+}
+
+#sb-menu-pageselection-page1 {
+	background-color:SandyBrown;	
+	position:absolute;
+	top:0;
+	left:0;
+	height:20px;
+	width:149px;
+}
+
+#sb-menu-pageselection-page2 {
+	background-color:Chocolate;	
+	position:absolute;
+	top:0;
+	left:100px;
+	height:20px;
+	width:199px;
+}
+
+#sb-menu-pagecontainer {
+	background-color:pink;
+	height:500px;
+	position:absolute;
+	top:20px;
+	left:0;
+	width:299px;
+}
+
+#sb-menu-page1 {
+	background-color:SandyBrown;
+	height:100%;
+	width:100%;
+}
+
+#sb-menu-page1-currentPerson {
+	font-size:16px;
+	font-weight:bold;
+	position:absolute;
+	top:10px;
+	left:0;
+}
+
+#sb-menu-page1-search {
+	position:absolute;
+	top:50px;
+}
+
+#sb-menu-page1-views {
+	position:absolute;
+	top:400px;
+}
+
+#sb-menu-page2 {
+	background-color:Chocolate;
+	height:100%;
+	width:100%;
+}
+
+#sb-menu-page2-search {
+	position:absolute;
+	top:50px;
+}
+
+.fork01 {
+	background-image: url(../img/sprites.gif);
+	background-position: 0 0;
+	height:50px;
+	width:100px;
+}
+
+.line01 {
+	background-image: url(../img/sprites.gif);
+	background-position: 0 50px;
+	height:25px;
+	width:1px;
+}
+
+.image01 {
+	border: none;
+	height: 80px;
+	vertical-align: bottom;
+	width: 60px;
+}

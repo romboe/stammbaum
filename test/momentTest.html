@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/qunit-git.css">
+	<script src="../lib/jquery-1.7.1.js"></script>
+	<script src="../lib/jquery-ui-1.8.17.custom.min.js"></script>
+	<script src="../js/qunit-git.js"></script>
+	<script src="../lib/moment.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			module('parse');
+			test('parse', function() {
+				var m = new moment('1981-07-12');
+				deepEqual(true, m.isValid());
+				deepEqual(m.date(), 12);
+				deepEqual(m.month(), 6);
+				deepEqual(m.year(), 1981);
+			});
+			test('parse error', function() {
+				var m = new moment('1981-07-??');
+				deepEqual(false, m.isValid());
+			});
+			module('comparison');
+			test('diff', function() {
+				var today = new moment();
+				// var future = today.add('days', 7);
+				
+				var bday = new moment();
+				bday.year(today.year());
+				bday.day(today.day()-3);
+				bday.month(today.month());
+				
+				deepEqual(-3, bday.diff(today, 'days'));
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1 id="qunit-header">QUnit example</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+	<div id="qunit-fixture">test markup, will be hidden</div>	
+</body>
+</html>

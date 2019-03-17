@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/sb.css">
+	<script src="../lib/jquery-1.7.1.js"></script>
+	<script src="../lib/jquery-ui-1.8.17.custom.min.js"></script>
+	<script src="js/view.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			sb.view.classic($('#main'));
+			$('#draggable').draggable();			
+		});
+	</script>
+</head>
+<body>
+	<div id="main"/>
+	<div id="draggable" style="background-color:lime;width:50px;height:50px;"/>
+</body>
+</html>

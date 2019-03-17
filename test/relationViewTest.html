@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/sb.css">
+	<script src="../lib/jquery-1.7.1.js"></script>
+	<script src="../js/ns.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/model.js"></script>
+	<script src="../js/view.js"></script>
+<script type="text/javascript">
+	function renderBranch(array, offset, imgStyle, lineStyle) {
+		var result = '';
+		var count = 0;
+		while (array.length > 0) {
+			var personId = array.shift();
+			person = sb.model.findId(personId);
+			
+			var imageHeight = 80;
+			var lineHeight = 25;
+			var top = offset + count * (imageHeight + lineHeight);
+			var lineTop = top + imageHeight;
+			
+			result += '<div class="sb-view-relation-' + imgStyle + '" style="top:' + top + 'px;">' + sb.view.facet.image01(person) + '</div>';
+			if (array.length > 0) {
+				result += '<div class="line01 sb-view-relation-' + lineStyle + '" style="top:' + lineTop + 'px;"></div>';
+			}
+			
+			count++;
+		}
+		return result;
+	}
+
+	function render(left, right) {
+		var result = '';
+		if (left.length > 0) {
+			var root = left.shift();
+			var person = sb.model.findId(root);
+			result += '<div id="sb-view-relation-root">' + sb.view.facet.image01(person) + '</div>';
+			if (right.length > 0) {
+				result += '<div id="sb-view-relation-fork"></div>'
+				result += renderBranch(left, 150, 'left', 'line-left');
+				result += renderBranch(right, 150, 'right', 'line-right');
+			}
+			else {
+				result += '<div class="line01 sb-view-relation-line-center" style="top:100px;"></div>';
+				result += renderBranch(left, 125, 'center', 'line-center');
+			}
+		}
+		return result;
+	}
+	
+	function test01() {
+		var left = [11,16,15];
+		var right = [8,4];
+		$('body').append(render(left,right));
+	}
+	
+	function test02() {
+		var left = [8,4];
+		var right = [];
+		$('body').append(render(left,right));
+	}
+	
+	$(document).ready(function() {
+		sb.view.facet.imagePath = '../img/medium/';
+		test01();
+		// test02();
+	});
+	
+
+</script>
+
+</head>
+
+
+
+<body>
+	<!--  
+	<div id="sb-view-relation-root">
+		<img width="60" height="80" src="../img/medium/19290130KrakhoferKurt.jpg"/>
+	</div>
+	<div id="sb-view-relation-fork"></div>
+	
+	
+	<div class="sb-view-relation-left" style="top:150px;">
+		<img width="60" height="80" src="../img/medium/19581019KrakhoferDoris.jpg"/>
+	</div>
+	<div class="line01 sb-view-relation-line-left" style="top:230px;"></div>
+	<div class="sb-view-relation-left" style="top:255px;">
+		<img width="60" height="80" src="../img/medium/19810712BoehmRoman.jpg"/>
+	</div>
+	<div class="sb-view-relation-right" style="top:150px;">
+		<img width="60" height="80" src="../img/medium/19680313KrakhoferKlaus.jpg"/>
+	</div>
+	<div class="line01 sb-view-relation-line-right" style="top:230px;"></div>
+	<div class="sb-view-relation-right" style="top:255px;">
+		<img width="60" height="80" src="../img/medium/20050228KrakhoferAnna.jpg"/>
+	</div>
+	-->
+</body>
+</html>

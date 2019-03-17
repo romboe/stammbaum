@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Seitentitel</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.css" />
+<link rel="stylesheet" type="text/css" href="css/bday.css" />
+<script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="lib/jquery.mobile-1.2.0.min.js"></script>
+<script type="text/javascript" src="lib/bleistift.js"></script>
+<script type="text/javascript" src="lib/moment.min.js"></script>
+<script type="text/javascript" src="js/bdayview.js"></script>
+
+	<script type="text/javascript" src="js/ns.js"></script>
+	<script type="text/javascript" src="js/helper.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/model.js"></script>
+	
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		bday.view.today.appendTo(jQuery('#seite1 div.content'), 'heute');
+		bday.view.week.appendTo(jQuery('#seite2 div.content'), 'woche');
+	});
+</script>
+</head>
+<body>
+	<div data-role="page" id="seite1">
+		<div data-role="header">
+			<h1>Heute</h1>
+		</div>
+		<div data-role="content" class="content">
+			
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#seite1" data-iconpos="top" data-icon="home">Heute</a></li>
+					<li><a href="#seite2" data-iconpos="top" data-icon="home">Woche</a></li>
+					<li><a href="suche" data-iconpos="top" data-icon="search">Suche</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="seite2">
+		<div data-role="header">
+			<h1>Woche</h1>
+		</div>
+		<div data-role="content" class="content">
+			
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#seite1" data-iconpos="top" data-icon="home">Heute</a></li>
+					<li><a href="#seite2" data-iconpos="top" data-icon="home">Woche</a></li>
+					<li><a href="#suche" data-iconpos="top" data-icon="search">Suche</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="suche">
+		<div data-role="header">
+			<h1>Suche</h1>
+		</div>
+		<div data-role="content">
+		<h3>Nix implementiert</h3>
+			<div data-role="fieldcontain">
+				<label for="search-2">Search Input:</label>
+				<input data-mini="true" type="search" name="search-2" id="search-2" value="" />
+			</div>
+		</div>
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#seite1" data-iconpos="top" data-icon="home">Heute</a></li>
+					<li><a href="#seite2" data-iconpos="top" data-icon="home">Woche</a></li>
+					<li><a href="#suche" data-iconpos="top" data-icon="search">Suche</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

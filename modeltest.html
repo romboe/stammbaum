@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/qunit-git.css">
+	<script src="lib/jquery-1.7.1.js"></script>
+	<script src="lib/jquery-ui-1.8.17.custom.min.js"></script>
+	<script src="js/qunit-git.js"></script>
+	<script src="js/ns.js"></script>
+	<script src="test/js/testdata.js"></script>
+	<script src="js/model.js"></script>
+	<script type="text/javascript" src="lib/moment.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			module('Model');
+			test('findId', function() {
+				var person = sb.model.findId(4);
+				equal(person.firstname, "Roman");
+				person = sb.model.findId(7);
+				equal(person.firstname, "Josef");
+			});
+			test('find', function() {
+				var p = sb.model.find({parent:7});
+				p.sort(function(a,b) { return a.birth > b.birth; });
+				equal(p.length, 3);
+				equal(p[0].firstname, 'Roman');
+				equal(p[1].firstname, 'Stefan');
+				equal(p[2].firstname, 'Clemens');
+				
+				var p = sb.model.find({death:{d:16,m:8,y:2010}});
+				equal(p[0].firstname, 'Kurt');
+			});
+			test('findFather', function() {				
+				equal(sb.model.findFather(4,0), undefined);
+				equal(sb.model.findFather(4,1).firstname, 'Josef');
+				equal(sb.model.findFather(4,2).firstname, 'Ignaz');
+				equal(sb.model.findFather(4,3).firstname, 'Johann');
+			});
+			test('findChildren', function() {				
+				deepEqual(sb.model.findChildren(4,0), []);
+				deepEqual(sb.model.findChildren(7,1).length, 3);
+				deepEqual(sb.model.findChildren(9,1).length, 7);
+				deepEqual(sb.model.findChildren(9,2).length, 24);
+				/*
+				var enkel = sb.model.findChildren(9,2);
+				for (var i=0; i<enkel.length; i++) {
+					console.log(enkel[i].firstname + " " + enkel[i].lastname + ', ');
+				}
+				*/
+			});
+			test('findAlongThePath', function() {
+				var result;
+				deepEqual(sb.model.findAlongThePath(4, []).length, 1);
+				deepEqual(sb.model.findAlongThePath(4, [])[0].firstname, 'Roman');
+				
+				result = sb.model.findAlongThePath(4, ['mother']);
+				deepEqual(result.length, 2);
+				deepEqual(result[0].firstname, 'Roman');
+				deepEqual(result[1].firstname, 'Doris');
+				
+				result = sb.model.findAlongThePath(4, ['father','father','father','father']);
+				deepEqual(result.length, 5);
+				deepEqual(result[0].firstname, 'Roman');
+				deepEqual(result[1].firstname, 'Josef');
+				deepEqual(result[2].firstname, 'Ignaz');
+				deepEqual(result[3].firstname, 'Johann');
+				deepEqual(result[4].firstname, 'Mathias');
+				
+				result = sb.model.findAlongThePath(4, ['mother','father','mother']);				
+				deepEqual(result[0].firstname, 'Roman');
+				deepEqual(result[1].firstname, 'Doris');
+				deepEqual(result[2].firstname, 'Kurt');
+				deepEqual(result[3].firstname, 'Angela');
+			});
+			
+			test('findDescendants', function() {
+				var result = sb.model.findDescendants(9, 1);
+				deepEqual(result.length, 1+7);
+				result = sb.model.findDescendants(9, 2);
+				deepEqual(result.length, 1+7+24);
+			});
+			
+			test('birthAscending', function() {
+				deepEqual(sb.model.helper.birthAscending({birth:'1981-07-12'}, {}), 0);
+				deepEqual(sb.model.helper.birthAscending({birth:'1981-07-12'}, {birth:'1983-03-28'}), -1);
+				deepEqual(sb.model.helper.birthAscending({birth:'1981-07-12'}, {birth:'1981-07-12'}), 0);
+			});
+			
+			test('buildFilename', function() {
+				deepEqual(sb.model.helper.buildFilename({id:4,firstname:'Roman',lastname:'Böhm',birth:'1981-07-12'}), '19810712BoehmRoman');
+			});
+			
+			test('buildDate', function() {
+				deepEqual(sb.model.helper.buildDate('1981-07-12'), '12.Jul&nbsp;1981');
+				deepEqual(sb.model.helper.buildDate('1918-00-00'), '&nbsp;?.?&nbsp;&nbsp;&nbsp;1918');
+				deepEqual(sb.model.helper.buildDate('0000-00-00'), '&nbsp;?.?&nbsp;&nbsp;&nbsp;?');
+			});
+			
+			test('splitDate', function() {
+				deepEqual(sb.model.helper.splitDate(''), {d:-1,m:-1,y:-1});
+				deepEqual(sb.model.helper.splitDate('1981-07-12'), {d:12,m:7,y:1981});
+			});
+			
+			test('findRelation', function() {
+				deepEqual(sb.model.findRelation(4,4), [':']);
+				deepEqual(sb.model.findRelation(4,7), ['Vater:7', ':']);
+				deepEqual(sb.model.findRelation(7,4), ['Kind:4']);
+				deepEqual(sb.model.findRelation(4,8), ['Mutter:8', ':']);
+				deepEqual(sb.model.findRelation(4,15), ['Mutter:8','Vater:11','Kind:16','Kind:15']);
+				deepEqual(sb.model.findRelation(15,4), ['Vater:16','Vater:11','Kind:8','Kind:4']);
+				deepEqual(sb.model.findRelation(4,97), []);
+			});
+			
+			test('splitPathIntoLeftAndRight', function() {
+				var path = ['Vater:16','Vater:11','Kind:8','Kind:4'];
+				var result = sb.model.splitPathIntoLeftAndRight(path); 
+				deepEqual(result.left, [11,16]);
+				deepEqual(result.right, [8, 4]);
+			});
+		});
+    </script>
+  </head>
+  <body>
+  	<h1 id="qunit-header">QUnit example</h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">test markup, will be hidden</div>
+  </body>
+</html>
