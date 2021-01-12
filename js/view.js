@@ -274,7 +274,7 @@ sb.view = {
 }
 
 sb.view.facet = {
-	imagePath: 'img/medium/',	
+	imagePath: sb.imagePath,	
 		
 	currentPerson: {
 		appendTo: function(parent, id, person) {
